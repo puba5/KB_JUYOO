@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Fat Finger</title>
+  <script>
+      var resultVal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+      var resultVal1=[0,0,0,0];
+      var incFlag=0;
+      var decFlag=0;
+      //document.form.textview.value = resultVal;
+    function keyHandler(e) {
+        var TABKEY = 9;
+        if(e.keyCode == TABKEY) {
+            this.value += "    ";
+            if(e.preventDefault) {
+                e.preventDefault();
+            }
+            return false;
+        }
+    }
+    function checkNumberFieldLength1(elem){
+
+        var flag=0;
+        var num4flag=0;
+        if(elem.value.length>4){
+            num4flag=1;
+            elem.value = elem.value.slice(0,4);
+        }
+        if(elem.value.length <=4)
+        {
+            document.form.textview.value="";
+            flag=0;
+            resultVal[0] = parseInt(elem.value/1000);
+            resultVal[1] = parseInt((elem.value%1000)/100);
+            resultVal[2] = parseInt((elem.value%100)/10);
+            resultVal[3] = parseInt(elem.value%10);
+            for(var i=0;i<resultVal.length;i++){
+                if(resultVal[i]!=0){
+                    flag=1;
+                }
+                if(flag==1){
+                    document.form.textview.value+=resultVal[i];
+                }
+            }
+        }
+    }
+    function checkNumberFieldLength2(elem){
+
+        var flag=0;
+        var num4flag=0;
+        if(elem.value.length>4){
+            num4flag=1;
+            elem.value = elem.value.slice(0,4);
+        }
+        if(elem.value.length <=4)
+        {
+            document.form.textview.value="";
+            flag=0;
+            resultVal[4] = parseInt(elem.value/1000);
+            resultVal[5] = parseInt((elem.value%1000)/100);
+            resultVal[6] = parseInt((elem.value%100)/10);
+            resultVal[7] = parseInt(elem.value%10);
+            for(var i=0;i<resultVal.length;i++){
+                if(resultVal[i]!=0){
+                    flag=1;
+                }
+                if(flag==1){
+                    document.form.textview.value+=resultVal[i];
+                }
+            }
+        }
+    }
+    function checkNumberFieldLength3(elem){
+
+        var flag=0;
+        var num4flag=0;
+        if(elem.value.length>4){
+            num4flag=1;
+            elem.value = elem.value.slice(0,4);
+        }
+        if(elem.value.length <=4)
+        {
+            document.form.textview.value="";
+            flag=0;
+            resultVal[8] = parseInt(elem.value/1000);
+            resultVal[9] = parseInt((elem.value%1000)/100);
+            resultVal[10] = parseInt((elem.value%100)/10);
+            resultVal[11] = parseInt(elem.value%10);
+            for(var i=0;i<resultVal.length;i++){
+                if(resultVal[i]!=0){
+                    flag=1;
+                }
+                if(flag==1){
+                    document.form.textview.value+=resultVal[i];
+                }
+            }
+        }
+    }
+    function checkNumberFieldLength4(elem){
+
+        var flag=0;
+        var num4flag=0;
+        if(elem.value.length>4){
+            num4flag=1;
+            elem.value = elem.value.slice(0,4);
+        }
+        if(elem.value.length <=4)
+        {
+            document.form.textview.value="";
+            flag=0;
+            resultVal[12] = parseInt(elem.value/1000);
+            resultVal[13] = parseInt((elem.value%1000)/100);
+            resultVal[14] = parseInt((elem.value%100)/10);
+            resultVal[15] = parseInt(elem.value%10);
+            for(var i=0;i<resultVal.length;i++){
+                if(resultVal[i]!=0){
+                    flag=1;
+                }
+                if(flag==1){
+                    document.form.textview.value+=resultVal[i];
+                }
+            }
+        }
+    }
+    function c(){
+        document.form.textview.value="";
+        document.form.textview1.value="";
+        document.form.textview2.value="";
+        document.form.textview3.value="";
+        document.form.textview4.value="";
+        for(var i=0;i<resultVal.length;i++){
+            resultVal[i] = 0;
+        }
+    }
+    function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("textview");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+}
+  </script>
+  <style>
+      body {font-family: 'Noto Sans KR' , sans-serif; }
+    #blank1 {font-family: 'Noto Sans KR' , sans-serif;
+    }
+    #blank2 {font-family: 'Noto Sans KR' , sans-serif;}
+    #blank3 {font-family: 'Noto Sans KR' , sans-serif;}
+    #blank4 {font-family: 'Noto Sans KR' , sans-serif;}
+    h1 {font-family: 'Noto Sans KR' , sans-serif;}
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+
+<body>
+    <h1>숫자 변환기</h1>
+    <div class="main">
+        <form name="form" >
+                <input class="textview" id="textview">
+            <input class="textview" id="textview1" id="textview1" placeholder="0000" oninput="checkNumberFieldLength1(this);">
+            <label for="textview1"> 조 </label>
+            <input class="textview" id="textview2" placeholder="0000" oninput="checkNumberFieldLength2(this);">
+            <label for="textview2"> 억 </label>
+            <input class="textview" id="textview3" placeholder="0000" oninput="checkNumberFieldLength3(this);">
+            <label for="textview3"> 만 </label>
+            <input class="textview" id="textview4" placeholder="0000" oninput="checkNumberFieldLength4(this);">
+            <input class="button" type="button" value = "리셋" onclick="c()">
+            <input class="button" type="button" value = "복사" onclick="myFunction()">
+        </form>
+    </div>
+        <div>
+            <label for="review">피드백: </label>
+            <textarea name="review" id="review" coils="30" rows="10" placeholder="피드백 입력해주세요."></textarea>
+        </div>
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
