@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Resume - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/resume.min.css" rel="stylesheet">
+
+  <script>
+    var resultVal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var reverVal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var incFlag = 0;
+    var decFlag = 0;
+    //document.form.textview.value = resultVal;
+    function keyHandler(e) {
+      var TABKEY = 9;
+      if (e.keyCode == TABKEY) {
+        this.value += "    ";
+        if (e.preventDefault) {
+          e.preventDefault();
+        }
+        return false;
+      }
+    }
+    function checkNumberFieldLength1(elem) {
+
+      var flag = 0;
+      var num4flag = 0;
+      if (elem.value.length > 4) {
+        num4flag = 1;
+        elem.value = elem.value.slice(0, 4);
+      }
+      if (elem.value.length <= 4) {
+        document.form.textview.value = "";
+        flag = 0;
+        resultVal[0] = parseInt(elem.value / 1000);
+        resultVal[1] = parseInt((elem.value % 1000) / 100);
+        resultVal[2] = parseInt((elem.value % 100) / 10);
+        resultVal[3] = parseInt(elem.value % 10);
+        for (var i = 0; i < resultVal.length; i++) {
+          if (resultVal[i] != -0) {
+            flag = 1;
+          }
+          if (flag == 1) {
+            document.form.textview.value += resultVal[i];
+          }
+        }
+      }
+    }
+    function checkNumberFieldLength2(elem) {
+
+      var flag = 0;
+      var num4flag = 0;
+      if (elem.value.length > 4) {
+        num4flag = 1;
+        elem.value = elem.value.slice(0, 4);
+      }
+      if (elem.value.length <= 4) {
+        document.form.textview.value = "";
+        flag = 0;
+        resultVal[4] = parseInt(elem.value / 1000);
+        resultVal[5] = parseInt((elem.value % 1000) / 100);
+        resultVal[6] = parseInt((elem.value % 100) / 10);
+        resultVal[7] = parseInt(elem.value % 10);
+        for (var i = 0; i < resultVal.length; i++) {
+          if (resultVal[i] != 0) {
+            flag = 1;
+          }
+          if (flag == 1) {
+            document.form.textview.value += resultVal[i];
+          }
+        }
+      }
+    }
+    function checkNumberFieldLength3(elem) {
+
+      var flag = 0;
+      var num4flag = 0;
+      if (elem.value.length > 4) {
+        num4flag = 1;
+        elem.value = elem.value.slice(0, 4);
+      }
+      if (elem.value.length <= 4) {
+        document.form.textview.value = "";
+        flag = 0;
+        resultVal[8] = parseInt(elem.value / 1000);
+        resultVal[9] = parseInt((elem.value % 1000) / 100);
+        resultVal[10] = parseInt((elem.value % 100) / 10);
+        resultVal[11] = parseInt(elem.value % 10);
+        for (var i = 0; i < resultVal.length; i++) {
+          if (resultVal[i] != 0) {
+            flag = 1;
+          }
+          if (flag == 1) {
+            document.form.textview.value += resultVal[i];
+          }
+        }
+      }
+    }
+    function checkNumberFieldLength4(elem) {
+
+      var flag = 0;
+      var num4flag = 0;
+      if (elem.value.length > 4) {
+        num4flag = 1;
+        elem.value = elem.value.slice(0, 4);
+      }
+      if (elem.value.length <= 4) {
+        document.form.textview.value = "";
+        flag = 0;
+        resultVal[12] = parseInt(elem.value / 1000);
+        resultVal[13] = parseInt((elem.value % 1000) / 100);
+        resultVal[14] = parseInt((elem.value % 100) / 10);
+        resultVal[15] = parseInt(elem.value % 10);
+        for (var i = 0; i < resultVal.length; i++) {
+          if (resultVal[i] != 0) {
+            flag = 1;
+          }
+          if (flag == 1) {
+            document.form.textview.value += resultVal[i];
+          }
+        }
+      }
+    }
+    function transToReadable(elem) {
+      var flag = 0;
+      var j = 10;
+      var k = 0;
+
+      //16 이상의 숫자는 밴
+      if (elem.value.length > resultVal.length) {
+        elem.value = elem.value.slice(0, resultVal.length);
+      }
+      if (elem.value.length <= resultVal.length) {
+        document.form.textview.value = "";
+        flag = 0;
+        //16-2 = 14
+        for (var i = 0; i < resultVal.length; i++) {
+          resultVal[i] = 0;
+          reverVal[i] = 0;
+        }
+        //53200
+        for (var i = elem.value.length; i > 0; i--) {
+          reverVal[i - 1] = parseInt((elem.value % j) / (j / 10));
+          j = j * 10;
+        }
+        //reverVal[0] = 5   ->  resultVal[11] = 5
+        //reverVal[1] = 3   ->  resultVal[12] = 3
+        //reverVal[2] = 2   ->  resultVal[13] = 2
+        //reverVal[3] = 0   ->  resultVal[14] = 0
+        //reverVal[4] = 0   ->  resultVal[15] = 0
+        // 11부터 채워넣음
+        k = 0;
+        for (var i = resultVal.length - elem.value.length; i < resultVal.length; i++) {
+          resultVal[i] = reverVal[k];
+          k++;
+
+        }
+        //k=5
+        document.form.textview4.value = "";
+        document.form.textview3.value = "";
+        document.form.textview2.value = "";
+        document.form.textview1.value = "";
+        //16-5
+        var temp = 0;
+
+        for (var i = resultVal.length - elem.value.length; i < resultVal.length; i++) {
+
+          document.form.textview.value += reverVal[temp++];
+
+          //reverVal[resultVal.length-k-1] = resultVal[k];
+          if (parseInt(i / 4) == 3) {
+            document.form.textview4.value += resultVal[i];
+          }
+          else if (parseInt(i / 4) == 2) {
+            document.form.textview3.value += resultVal[i];
+          }
+          else if (parseInt(i / 4) == 1) {
+            document.form.textview2.value += resultVal[i];
+          }
+          else if (parseInt(i / 4) == 0) {
+            document.form.textview1.value += resultVal[i];
+          }
+        }
+      }
+    }
+    function c() {
+      document.form.textview.value = "";
+      document.form.textview1.value = "";
+      document.form.textview2.value = "";
+      document.form.textview3.value = "";
+      document.form.textview4.value = "";
+      for (var i = 0; i < resultVal.length; i++) {
+        resultVal[i] = 0;
+      }
+    }
+
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("textview");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+    function output() {
+      var x = document.getElementById("").value;
+      document.getElementById("myTextarea").value = "Fifth Avenue, New York City";
+    }
+  </script>
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Clarence Taylor</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/sungjin.png" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">Fat Finger가 무엇인가</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">숫자변환기</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#intro">팀원 소개</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+
+      <div class="w-100">
+          <h1 class="mb-0">Fatfinger을 위한<br>
+            <span class="text-primary">숫자 변환기</span></h1>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">경제학 용어!</h3>
+            <div class="subheading mb-3">성호는 너무 멋있어</div>
+            <p>성호는 멋있고 아성이는 똑똑하고 현우는 멍청해 인재는 참하고 경현이는 멋있어 성진이는 재밌어.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h1 class="mb-0">그래서 만든<br>
+          <span class="text-primary">숫자 변환기</span>
+        </h1>
+        <div><br></div>
+        <h6 class="fatculator">
+          <form name="form">
+            <p>
+              <label for="review"> 변환된 숫자 값 : </label>
+              <input class="textview" id="textview">
+            </p>
+            <p>
+              <label for="review"> 헷갈리지 않게 입력해주세요 : </label>
+              <input class="textview" id="textview1" id="textview1" placeholder="0000"
+                oninput="checkNumberFieldLength1(this);">
+              <label for="textview1"> 조 </label>
+              <input class="textview" id="textview2" placeholder="0000" oninput="checkNumberFieldLength2(this);">
+              <label for="textview2"> 억 </label>
+              <input class="textview" id="textview3" placeholder="0000" oninput="checkNumberFieldLength3(this);">
+              <label for="textview3"> 만 </label>
+              <input class="textview" id="textview4" placeholder="0000" oninput="checkNumberFieldLength4(this);">
+              <input type="button" class="btn btn-primary btn-sm" value="리셋" onclick="c()">
+              <input type="button" class="btn btn-primary btn-sm" value="복사" onclick="myFunction()">
+            </p>
+            <p>
+              <label for="review"> 변환할 숫자 값 : </label>
+              <input class="textviewtrans" id="textviewtrans" placeholder="0~9999조까지" oninput="transToReadable(this)">
+            </p>
+            <p>
+              <textarea id="output1" onin></textarea>
+            </p>
+          </form>
+        </h6>
+       
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="intro">
+      <div class="w-100">
+        <h2 class="mb-5">팀원 소개</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">주성호</h3>
+            <div class="subheading mb-3">팀장 & 아이디어 제공 & 외모 담당</div>
+            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">April 27, 1995</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">유현우</h3>
+            <div class="subheading mb-3">성호 부하</div>
+            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">April 25, 1995</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Junior Web Designer</h3>
+            <div class="subheading mb-3">Shout! Media Productions</div>
+            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">July 2010 - December 2011</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Web Design Intern</h3>
+            <div class="subheading mb-3">Shout! Media Productions</div>
+            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2008 - June 2010</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
+
+</body>
+
+</html>
