@@ -141,8 +141,27 @@
       var flag = 0;
       var j = 10;
       var k = 0;
+      //0으로 시작하면 받지 않아
+      if(elem.value==""){
+        document.form.textview4.value = "";
+        document.form.textview3.value = "";
+        document.form.textview2.value = "";
+        document.form.textview1.value = "";
+        document.form.textview.value="";
+        return;
+      }
+      if(elem.value[0]==0 || !(elem.value[0]>=0 && elem.value[0]<=9)){
+        document.form.textview.value="숫자를 확인해주세요";
+        return;
+      }
+      elem.value = elem.value.replace(/,/gi,"");  
+      for(var i=0;i<elem.value.length;i++){
+        if(elem.value[i]=='.'){
+          elem.value = elem.value.slice(0, i);
+        }
+      }
 
-      //16 이상의 숫자는 밴
+      //16 이상의 숫자는 Banned
       if (elem.value.length > resultVal.length) {
         elem.value = elem.value.slice(0, resultVal.length);
       }
