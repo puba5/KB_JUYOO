@@ -425,27 +425,27 @@
 
               <p>
                 <label for="review">▼▼ 원하는 숫자를 단위에 맞게 입력해주세요 ▼▼ </label><br>
-                <input class="textview" id="textview1" id="textview1" placeholder="0" oninput="checkNumberFieldLength1(this);">
+                <input class="textview" id="textview1" id="textview1" placeholder="0" oninput="checkNumberFieldLength1(this);"style="width:75px;height:70px;font-size:30px;">
                 <label for="textview1"> 조 </label>
-                <input class="textview" id="textview2" placeholder="0" oninput="checkNumberFieldLength2(this);">
+                <input class="textview" id="textview2" placeholder="0" oninput="checkNumberFieldLength2(this);"style="width:75px;height:70px;font-size:30px;">
                 <label for="textview2"> 억 </label>
-                <input class="textview" id="textview3" placeholder="0" oninput="checkNumberFieldLength3(this);">
+                <input class="textview" id="textview3" placeholder="0" oninput="checkNumberFieldLength3(this);"style="width:75px;height:70px;font-size:30px;">
                 <label for="textview3"> 만 </label>
-                <input class="textview" id="textview4" placeholder="0" oninput="checkNumberFieldLength4(this);">
+                <input class="textview" id="textview4" placeholder="0" oninput="checkNumberFieldLength4(this);"style="width:75px;height:70px;font-size:30px;">
               </p>
               <p>
-                <label for="review"> ▼▼변환된 숫자 값 ▼▼ </label><br>
-                <input class="resulttextview" id="textview">
+                <label for="review"> ▼▼변환된 결과 값 ▼▼ </label><br>
+                <input class="resulttextview" id="textview" style="width:800px;height:100px;font-size:40px;">
                 <input type="button" class="btn btn-primary btn-sm" value="리셋" onclick="c()">
                 <input type="button" class="btn btn-primary btn-sm" value="복사" onclick="myFunction()">
               </p>
-              <h3 class="mb-0"><br>문서를 변환기 </h3><br>
+              <h3 class="mb-0"><br>문서를 넣어서 변환 </h3><br>
               <p>
                 <label for="review"> </label>
-                <input class="inputText" id="inputText" placeholder="문서를 넣어주세요" oninput="transtoText(this)" style="width:800px;height:100px;font-size:30px;">
+                <input class="inputText" id="inputText" placeholder="문서를 넣어주세요" oninput="transtoText(this)" style="width:800px;height:100px;font-size:25px;">
               </p>
               <p>
-                <input class="transtext" id="transtext" style="width:800px;height:100px;font-size:20px;">
+                <input class="transtext" id="transtext" style="width:800px;height:100px;font-size:25px;">
               </p>
             </form>
           </div>
@@ -453,7 +453,7 @@
             <br>
             <p>
               <label for="review"> ▼▼ 확인하고 싶은 숫자 ▼▼</label><br>
-              <input class="resulttextview" id="textviewtrans" placeholder="9999조까지 입력 가능합니다!" oninput="transToReadable(this)">
+              <input class="resulttextview" id="textviewtrans" placeholder="조 단위까지 입력 가능" oninput="transToReadable(this)"style="width:260px;height:70px;font-size:30px;">
             </p>
             
 
