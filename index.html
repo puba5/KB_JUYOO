@@ -245,90 +245,104 @@
 
         var tmpstr = "";
         if (elem.value[i] >= '0' && elem.value[i] <= '9') {
-          while (elem.value[i] >= '0' && elem.value[i] <= '9' && i < elem.value.length) {
-            tmpstr += elem.value[i];
-            document.form.transtext.value += elem.value[i];
-            i++;
+          while (1) {
+            if (i >= elem.value.length) {
+              break;
+            }
+            if (elem.value[i] == ',' || elem.value[i] == ' ') {
 
+              document.form.transtext.value += elem.value[i];
+              i++;
+            }
+            else if (elem.value[i] >= '0' && elem.value[i] <= '9') {
+
+              tmpstr += elem.value[i];
+              document.form.transtext.value += elem.value[i];
+              i++;
+            }
+            else {
+              i--;
+              break;
+            }
           }
         } else {
           document.form.transtext.value += elem.value[i];
         }
-        var output="";
+        var output = "";
         if (tmpstr != "") {
 
           if (tmpstr.length >= 13) {
             if (tmpstr.length == 16) {
-              output += tmpstr[tmpstr.length -1 - 15 ];
-              output += tmpstr[tmpstr.length -1 -14];
-              output += tmpstr[tmpstr.length -1 -13];
-              output += tmpstr[tmpstr.length -1 -12];
+              output += tmpstr[tmpstr.length - 1 - 15];
+              output += tmpstr[tmpstr.length - 1 - 14];
+              output += tmpstr[tmpstr.length - 1 - 13];
+              output += tmpstr[tmpstr.length - 1 - 12];
             } else if (tmpstr.length == 15) {
-              output += tmpstr[tmpstr.length -1 -14];
-              output += tmpstr[tmpstr.length -1 -13];
-              output += tmpstr[tmpstr.length -1 -12];
+              output += tmpstr[tmpstr.length - 1 - 14];
+              output += tmpstr[tmpstr.length - 1 - 13];
+              output += tmpstr[tmpstr.length - 1 - 12];
             } else if (tmpstr.length == 14) {
-              output += tmpstr[tmpstr.length -1 -13];
-              output += tmpstr[tmpstr.length -1 -12];
+              output += tmpstr[tmpstr.length - 1 - 13];
+              output += tmpstr[tmpstr.length - 1 - 12];
             } else if (tmpstr.length == 13) {
-              output += tmpstr[tmpstr.length -1 -12];
+              output += tmpstr[tmpstr.length - 1 - 12];
             }
 
             output += "조 ";
           }
           if (tmpstr.length >= 9) {
             if (tmpstr.length >= 12) {
-              output += tmpstr[tmpstr.length -1 -11];
-              output += tmpstr[tmpstr.length -1 -10];
-              output += tmpstr[tmpstr.length -1 -9];
-              output += tmpstr[tmpstr.length -1 -8];
+              output += tmpstr[tmpstr.length - 1 - 11];
+              output += tmpstr[tmpstr.length - 1 - 10];
+              output += tmpstr[tmpstr.length - 1 - 9];
+              output += tmpstr[tmpstr.length - 1 - 8];
             } else if (tmpstr.length == 11) {
-              output += tmpstr[tmpstr.length -1 -10];
-              output += tmpstr[tmpstr.length -1 -9];
-              output += tmpstr[tmpstr.length -1 -8];
+              output += tmpstr[tmpstr.length - 1 - 10];
+              output += tmpstr[tmpstr.length - 1 - 9];
+              output += tmpstr[tmpstr.length - 1 - 8];
             } else if (tmpstr.length == 10) {
-              output += tmpstr[tmpstr.length -1 -9];
-              output += tmpstr[tmpstr.length -1 -8];
+              output += tmpstr[tmpstr.length - 1 - 9];
+              output += tmpstr[tmpstr.length - 1 - 8];
             } else if (tmpstr.length == 9) {
-              output += tmpstr[tmpstr.length -1 -8];
+              output += tmpstr[tmpstr.length - 1 - 8];
             }
 
             output += "억 ";
           }
           if (tmpstr.length >= 5) {
             if (tmpstr.length >= 8) {
-              output += tmpstr[tmpstr.length -1 -7];
-              output += tmpstr[tmpstr.length -1 -6];
-              output += tmpstr[tmpstr.length -1 -5];
-              output += tmpstr[tmpstr.length -1 -4];
+              output += tmpstr[tmpstr.length - 1 - 7];
+              output += tmpstr[tmpstr.length - 1 - 6];
+              output += tmpstr[tmpstr.length - 1 - 5];
+              output += tmpstr[tmpstr.length - 1 - 4];
             } else if (tmpstr.length == 7) {
-              output += tmpstr[tmpstr.length -1 -6];
-              output += tmpstr[tmpstr.length -1 -5];
-              output += tmpstr[tmpstr.length -1 -4];
+              output += tmpstr[tmpstr.length - 1 - 6];
+              output += tmpstr[tmpstr.length - 1 - 5];
+              output += tmpstr[tmpstr.length - 1 - 4];
             } else if (tmpstr.length == 6) {
-              output += tmpstr[tmpstr.length -1 -5];
-              output += tmpstr[tmpstr.length -1 -4];
+              output += tmpstr[tmpstr.length - 1 - 5];
+              output += tmpstr[tmpstr.length - 1 - 4];
             } else if (tmpstr.length == 5) {
-              output += tmpstr[tmpstr.length -1 -4];
+              output += tmpstr[tmpstr.length - 1 - 4];
             }
             output += "만 ";
           }
           if (tmpstr.length >= 4) {
-            output += tmpstr[tmpstr.length -1 -3];
-            output += tmpstr[tmpstr.length -1 -2];
-            output += tmpstr[tmpstr.length -1 -1];
-            output += tmpstr[tmpstr.length -1 -0];
+            output += tmpstr[tmpstr.length - 1 - 3];
+            output += tmpstr[tmpstr.length - 1 - 2];
+            output += tmpstr[tmpstr.length - 1 - 1];
+            output += tmpstr[tmpstr.length - 1 - 0];
           } else if (tmpstr.length == 3) {
-            output += tmpstr[tmpstr.length -1 -2];
-            output += tmpstr[tmpstr.length -1 -1];
-            output += tmpstr[tmpstr.length -1 -0];
+            output += tmpstr[tmpstr.length - 1 - 2];
+            output += tmpstr[tmpstr.length - 1 - 1];
+            output += tmpstr[tmpstr.length - 1 - 0];
           } else if (tmpstr.length == 2) {
-            output += tmpstr[tmpstr.length -1 -1];
-            output += tmpstr[tmpstr.length -1 -0];
+            output += tmpstr[tmpstr.length - 1 - 1];
+            output += tmpstr[tmpstr.length - 1 - 0];
           } else if (tmpstr.length == 1) {
-            output += tmpstr[tmpstr.length -1 -0];
+            output += tmpstr[tmpstr.length - 1 - 0];
           }
-          
+
           document.form.transtext.value += "(" + output + ")";
         }
       }
@@ -425,13 +439,14 @@
 
               <p>
                 <label for="review">▼▼ 원하는 숫자를 단위에 맞게 입력해주세요 ▼▼ </label><br>
-                <input class="textview" id="textview1" id="textview1" placeholder="0" oninput="checkNumberFieldLength1(this);"style="width:75px;height:60px;font-size:30px;">
+                <input class="textview" id="textview1" id="textview1" placeholder="0" oninput="checkNumberFieldLength1(this);"
+                  style="width:75px;height:60px;font-size:30px;">
                 <label for="textview1"> 조 </label>
-                <input class="textview" id="textview2" placeholder="0" oninput="checkNumberFieldLength2(this);"style="width:75px;height:60px;font-size:30px;">
+                <input class="textview" id="textview2" placeholder="0" oninput="checkNumberFieldLength2(this);" style="width:75px;height:60px;font-size:30px;">
                 <label for="textview2"> 억 </label>
-                <input class="textview" id="textview3" placeholder="0" oninput="checkNumberFieldLength3(this);"style="width:75px;height:60px;font-size:30px;">
+                <input class="textview" id="textview3" placeholder="0" oninput="checkNumberFieldLength3(this);" style="width:75px;height:60px;font-size:30px;">
                 <label for="textview3"> 만 </label>
-                <input class="textview" id="textview4" placeholder="0" oninput="checkNumberFieldLength4(this);"style="width:75px;height:60px;font-size:30px;">
+                <input class="textview" id="textview4" placeholder="0" oninput="checkNumberFieldLength4(this);" style="width:75px;height:60px;font-size:30px;">
               </p>
               <p>
                 <label for="review"> ▼▼변환된 결과 값 ▼▼ </label><br>
@@ -453,9 +468,10 @@
             <br>
             <p>
               <label for="review"> ▼▼ 확인하고 싶은 숫자 ▼▼</label><br>
-              <input class="resulttextview" id="textviewtrans" placeholder="조 단위까지 입력 가능" oninput="transToReadable(this)"style="width:400px;height:60px;font-size:30px;">
+              <input class="resulttextview" id="textviewtrans" placeholder="조 단위까지 입력 가능" oninput="transToReadable(this)"
+                style="width:400px;height:60px;font-size:30px;">
             </p>
-            
+
 
           </div>
       </div>
