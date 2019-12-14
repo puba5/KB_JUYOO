@@ -147,6 +147,7 @@
         document.form.textview3.value = "";
         document.form.textview2.value = "";
         document.form.textview1.value = "";
+
         document.form.textview.value = "";
         return;
       }
@@ -195,6 +196,7 @@
         document.form.textview3.value = "";
         document.form.textview2.value = "";
         document.form.textview1.value = "";
+
         //16-5
         var temp = 0;
 
@@ -214,10 +216,15 @@
           }
           else if (parseInt(i / 4) == 0) {
             document.form.textview1.value += resultVal[i];
+            
           }
         }
+        document.form.textview12.value = document.form.textview1.value;
+        document.form.textview22.value = document.form.textview2.value;
       }
+
     }
+
     function c() {
       document.form.textview.value = "";
       document.form.textview1.value = "";
@@ -238,7 +245,7 @@
 
         var tmpstr = "";
         if (elem.value[i] >= '0' && elem.value[i] <= '9') {
-          while(elem.value[i] >= '0' && elem.value[i] <= '9' && i<elem.value.length){
+          while (elem.value[i] >= '0' && elem.value[i] <= '9' && i < elem.value.length) {
             tmpstr += elem.value[i];
             i++;
             document.form.transtext.value += elem.value[i];
@@ -247,7 +254,7 @@
           document.form.transtext.value += elem.value[i];
         }
         if (tmpstr != "") {
-          document.form.transtext.value += "("+tmpstr+")";
+          document.form.transtext.value += "(" + tmpstr + ")";
         }
       }
       return;
@@ -318,7 +325,8 @@
               따라서 이런 실수를 방지하는 것이 매우 중요하기 때문에 저희는 숫자 입력 실수를 방지하는 숫자 변환기를 만들었습니다. <br><br>
               관련 기사<br>
               <a href="https://news.joins.com/article/22521112" target="_blank"> 증권사 무너뜨리는 '팻 핑거의' 저주</a> <br>
-              <a href="http://www.dt.co.kr/contents.html?article_no=2018042702101858033001" target="_blank"> 황당한 착오주문 '팻
+              <a href="http://www.dt.co.kr/contents.html?article_no=2018042702101858033001" target="_blank"> 황당한 착오주문
+                '팻
                 핑거' 사례는</a>
             </p>
           </div>
@@ -336,43 +344,39 @@
         </h1>
         <div><br></div>
         <h6 class="fatculator">
-          <form name="form">
-            <p>
-              <label for="review"> 변환된 숫자 값 : </label>
-              <input class="textview" id="textview">
-            </p>
-            <p>
-              <label for="review"> 헷갈리지 않게 입력해주세요 : </label>
-              <input class="textview" id="textview1" id="textview1" placeholder="0000"
-                oninput="checkNumberFieldLength1(this);">
-              <label for="textview1"> 조 </label>
-              <input class="textview" id="textview2" placeholder="0000" oninput="checkNumberFieldLength2(this);">
-              <label for="textview2"> 억 </label>
-              <input class="textview" id="textview3" placeholder="0000" oninput="checkNumberFieldLength3(this);">
-              <label for="textview3"> 만 </label>
-              <input class="textview" id="textview4" placeholder="0000" oninput="checkNumberFieldLength4(this);">
-              <input type="button" class="btn btn-primary btn-sm" value="리셋" onclick="c()">
-              <input type="button" class="btn btn-primary btn-sm" value="복사" onclick="myFunction()">
-            </p>
-            <p>
-              <label for="review"> 변환할 숫자 값 : </label>
-              <input class="textviewtrans" id="textviewtrans" placeholder="0~9999조까지" oninput="transToReadable(this)">
-            </p>
-            <p>
-              <textarea id="output1" onin></textarea>
-            </p>
-            <p>
-              <label for="review"> 바꿀 문서 : </label>
-              <input class="inputText" id="inputText" placeholder="문서를 넣어주세요" oninput="transtoText(this)"
-                style="width:300px;height:200px;font-size:20px;">
-            </p>
-            <p>
-              <input class="transtext" id="transtext" style="width:300px;height:200px;font-size:20px;">
-            </p>
-          </form>
-        </h6>
+          <div class="left">
+            <form name="form">
+              <br>
 
+              <p>
+                <label for="review">▼▼ 원하는 숫자를 단위에 맞게 입력해주세요 ▼▼ </label><br>
+                <input class="textview" id="textview1" id="textview1" placeholder="0" oninput="checkNumberFieldLength1(this);">
+                <label for="textview1"> 조 </label>
+                <input class="textview" id="textview2" placeholder="0" oninput="checkNumberFieldLength2(this);">
+                <label for="textview2"> 억 </label>
+                <input class="textview" id="textview3" placeholder="0" oninput="checkNumberFieldLength3(this);">
+                <label for="textview3"> 만 </label>
+                <input class="textview" id="textview4" placeholder="0" oninput="checkNumberFieldLength4(this);">
+              </p>
+              <p>
+                <label for="review"> ▼▼변환된 숫자 값 ▼▼ </label><br>
+                <input class="resulttextview" id="textview">
+                <input type="button" class="btn btn-primary btn-sm" value="리셋" onclick="c()">
+                <input type="button" class="btn btn-primary btn-sm" value="복사" onclick="myFunction()">
+              </p>
+            </form>
+          </div>
+          <div class="right">
+            <br>
+            <p>
+              <label for="review"> ▼▼ 확인하고 싶은 숫자 ▼▼</label><br>
+              <input class="resulttextview" id="textviewtrans" placeholder="9999조까지 입력 가능합니다!" oninput="transToReadable(this)">
+            </p>
+          
+
+          </div>
       </div>
+      </h6>
     </section>
 
     <hr class="m-0">
