@@ -216,7 +216,7 @@
           }
           else if (parseInt(i / 4) == 0) {
             document.form.textview1.value += resultVal[i];
-            
+
           }
         }
         document.form.textview12.value = document.form.textview1.value;
@@ -247,14 +247,89 @@
         if (elem.value[i] >= '0' && elem.value[i] <= '9') {
           while (elem.value[i] >= '0' && elem.value[i] <= '9' && i < elem.value.length) {
             tmpstr += elem.value[i];
-            i++;
             document.form.transtext.value += elem.value[i];
+            i++;
+
           }
         } else {
           document.form.transtext.value += elem.value[i];
         }
+        var output="";
         if (tmpstr != "") {
-          document.form.transtext.value += "(" + tmpstr + ")";
+
+          if (tmpstr.length >= 13) {
+            if (tmpstr.length == 16) {
+              output += tmpstr[tmpstr.length -1 - 15 ];
+              output += tmpstr[tmpstr.length -1 -14];
+              output += tmpstr[tmpstr.length -1 -13];
+              output += tmpstr[tmpstr.length -1 -12];
+            } else if (tmpstr.length == 15) {
+              output += tmpstr[tmpstr.length -1 -14];
+              output += tmpstr[tmpstr.length -1 -13];
+              output += tmpstr[tmpstr.length -1 -12];
+            } else if (tmpstr.length == 14) {
+              output += tmpstr[tmpstr.length -1 -13];
+              output += tmpstr[tmpstr.length -1 -12];
+            } else if (tmpstr.length == 13) {
+              output += tmpstr[tmpstr.length -1 -12];
+            }
+
+            output += "조 ";
+          }
+          if (tmpstr.length >= 9) {
+            if (tmpstr.length >= 12) {
+              output += tmpstr[tmpstr.length -1 -11];
+              output += tmpstr[tmpstr.length -1 -10];
+              output += tmpstr[tmpstr.length -1 -9];
+              output += tmpstr[tmpstr.length -1 -8];
+            } else if (tmpstr.length == 11) {
+              output += tmpstr[tmpstr.length -1 -10];
+              output += tmpstr[tmpstr.length -1 -9];
+              output += tmpstr[tmpstr.length -1 -8];
+            } else if (tmpstr.length == 10) {
+              output += tmpstr[tmpstr.length -1 -9];
+              output += tmpstr[tmpstr.length -1 -8];
+            } else if (tmpstr.length == 9) {
+              output += tmpstr[tmpstr.length -1 -8];
+            }
+
+            output += "억 ";
+          }
+          if (tmpstr.length >= 5) {
+            if (tmpstr.length >= 8) {
+              output += tmpstr[tmpstr.length -1 -7];
+              output += tmpstr[tmpstr.length -1 -6];
+              output += tmpstr[tmpstr.length -1 -5];
+              output += tmpstr[tmpstr.length -1 -4];
+            } else if (tmpstr.length == 7) {
+              output += tmpstr[tmpstr.length -1 -6];
+              output += tmpstr[tmpstr.length -1 -5];
+              output += tmpstr[tmpstr.length -1 -4];
+            } else if (tmpstr.length == 6) {
+              output += tmpstr[tmpstr.length -1 -5];
+              output += tmpstr[tmpstr.length -1 -4];
+            } else if (tmpstr.length == 5) {
+              output += tmpstr[tmpstr.length -1 -4];
+            }
+            output += "만 ";
+          }
+          if (tmpstr.length >= 4) {
+            output += tmpstr[tmpstr.length -1 -3];
+            output += tmpstr[tmpstr.length -1 -2];
+            output += tmpstr[tmpstr.length -1 -1];
+            output += tmpstr[tmpstr.length -1 -0];
+          } else if (tmpstr.length == 3) {
+            output += tmpstr[tmpstr.length -1 -2];
+            output += tmpstr[tmpstr.length -1 -1];
+            output += tmpstr[tmpstr.length -1 -0];
+          } else if (tmpstr.length == 2) {
+            output += tmpstr[tmpstr.length -1 -1];
+            output += tmpstr[tmpstr.length -1 -0];
+          } else if (tmpstr.length == 1) {
+            output += tmpstr[tmpstr.length -1 -0];
+          }
+          
+          document.form.transtext.value += "(" + output + ")";
         }
       }
       return;
@@ -364,6 +439,14 @@
                 <input type="button" class="btn btn-primary btn-sm" value="리셋" onclick="c()">
                 <input type="button" class="btn btn-primary btn-sm" value="복사" onclick="myFunction()">
               </p>
+              <h3 class="mb-0"><br>문서를 변환기 </h3><br>
+              <p>
+                <label for="review"> </label>
+                <input class="inputText" id="inputText" placeholder="문서를 넣어주세요" oninput="transtoText(this)" style="width:800px;height:100px;font-size:30px;">
+              </p>
+              <p>
+                <input class="transtext" id="transtext" style="width:800px;height:100px;font-size:20px;">
+              </p>
             </form>
           </div>
           <div class="right">
@@ -372,11 +455,13 @@
               <label for="review"> ▼▼ 확인하고 싶은 숫자 ▼▼</label><br>
               <input class="resulttextview" id="textviewtrans" placeholder="9999조까지 입력 가능합니다!" oninput="transToReadable(this)">
             </p>
-          
+            
 
           </div>
       </div>
+
       </h6>
+
     </section>
 
     <hr class="m-0">
